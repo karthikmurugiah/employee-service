@@ -13,21 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmployeeController {
 
 	@Autowired
-	private EmployeeRepository employeeRepository;
-	
-	@RequestMapping(method = RequestMethod.GET)
-	public String getEmployees() {
-		System.out.println("Get Request Received...");
-		return "Hello Karthik";
-	}
-	
+	private EmployeeService employeeService;
+		
 	@RequestMapping(method = RequestMethod.POST)
-	public Employee addNewUsers(@RequestBody Employee employee) {
-		return employeeRepository.save(employee);
+	public Employee registerEmployee(@RequestBody Employee employee) {
+		//TODO: Add logging
+		return employeeService.registerEmployee(employee);
 	}
 	
 	@RequestMapping(value="all", method = RequestMethod.GET)
 	public List<Employee> listAllEmployees() {
-		return employeeRepository.findAll();
+		//TODO: Add Logging and pagenation
+		return employeeService.listAllEmployees();
 	}
 }
