@@ -1,25 +1,28 @@
-package org.service.employee;
+package com.dreamworks.employee.service;
 
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Document
 public class Employee {
 	
 	@Id
 	private String employeeId;
+	
 	@NotEmpty
 	private String firstName;
+	
 	@NotEmpty
 	private String lastName;
+	
 	@NotEmpty
 	private String gender;
-	@DateTimeFormat(pattern="MM/dd/yyyy")
+	
 	@NotEmpty
 	private String dateOfBirth;
+	
 	@NotEmpty
 	private String department;
 

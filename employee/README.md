@@ -24,9 +24,8 @@ GET /employee
 
 
 Further improvements:
-1. Improved error handling
-2. Security, Logging
+1. Pagenation
+2. Security
 3. Junits
 4. Secure DB password
-5. Package restructuring
-6. Make this a docker image with kubernetes(if required)
+5. Make this a docker image with kubernetes(if required)

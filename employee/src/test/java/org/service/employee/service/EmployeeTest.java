@@ -1,4 +1,4 @@
-package org.service.employee;
+package org.service.employee.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,6 +13,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.dreamworks.employee.service.Employee;
 
 @JsonTest
 @RunWith(SpringRunner.class)
@@ -34,14 +36,14 @@ public class EmployeeTest {
 	
 	@Test
 	public void whenFirstNameNull() {
-		Employee employee = new Employee(null, "lastName", "male", "01/01/1900", "engineering");
+		Employee employee = new Employee(null, "lastName", "male", "1981-01-01", "engineering");
 		Set<ConstraintViolation<Employee>> violations = validator.validate(employee);
 		assertThat(violations.size()).isEqualTo(1);
 	}
 	
 	@Test
 	public void whenLastNameNull() {
-		Employee employee = new Employee("firstName", null, "male", "01/01/1900", "engineering");
+		Employee employee = new Employee("firstName", null, "male", "1981-01-01", "engineering");
 		Set<ConstraintViolation<Employee>> violations = validator.validate(employee);
 		assertThat(violations.size()).isEqualTo(1);
 	}
@@ -55,20 +57,20 @@ public class EmployeeTest {
 
 	@Test
 	public void whenDepartmentNull() {
-		Employee employee = new Employee("firstName", "lastName", "male", "01/01/1900", null);
+		Employee employee = new Employee("firstName", "lastName", "male", "1981-01-01", null);
 		Set<ConstraintViolation<Employee>> violations = validator.validate(employee);
 		assertThat(violations.size()).isEqualTo(1);
 	}
 	@Test
 	public void whenGenderNull() {
-		Employee employee = new Employee("firstName", "lastName", null, "01/01/1900", "engineering");
+		Employee employee = new Employee("firstName", "lastName", null, "1981-01-01", "engineering");
 		Set<ConstraintViolation<Employee>> violations = validator.validate(employee);
 		assertThat(violations.size()).isEqualTo(1);
 	}
 	
 	@Test
 	public void whenAllWell() {
-		Employee employee = new Employee("firstName", "lastName", "male", "01/01/1900", "engineering");
+		Employee employee = new Employee("firstName", "lastName", "male", "1981-01-01", "engineering");
 		Set<ConstraintViolation<Employee>> violations = validator.validate(employee);
 		assertThat(violations.size()).isEqualTo(0);
 	}
